@@ -21,14 +21,7 @@ export default function Contact() {
           >
             Escribir por WhatsApp
           </a>
-          <a
-            className={styles.instagram}
-            href={`https://instagram.com/${barbershop.instagram.replace("@", "")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {barbershop.instagram}
-          </a>
+         
         </div>
       </div>
     </section>

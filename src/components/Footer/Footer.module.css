@@ -21,9 +21,11 @@
 }
 
 .logo {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
+  width: 44px;
+  height: 44px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .links {

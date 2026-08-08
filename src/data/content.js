@@ -58,7 +58,7 @@ import diploma1 from "../assets/img/diploma1.png";
 import diploma2 from "../assets/img/dipolma2.png"; // Usando la "o" antes de la "l"
 import diploma3 from "../assets/img/diploma3.png";
 import corte1 from "../assets/img/corte1.png";
-import corte2 from "../assets/img/corte2.jpg"; 
+import corte2 from "../assets/img/corte2.jpeg"; 
 import fondoWeb from "../assets/img/fondo web.jpg";
 
 

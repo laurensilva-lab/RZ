@@ -1,65 +1,119 @@
+/* ==========================================================================
+   CONTACT SECTION (BACKGROUND IMAGE VERSION)
+   ========================================================================== */
+
 .contact {
-  padding: var(--section-pad-y) 0;
-  background: linear-gradient(160deg, var(--maroon) 0%, #030500 100%);
+  padding: var(--section-pad-y, 90px) 0;
+  
+  background: 
+  linear-gradient(180deg, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.95) 100%),
+  url('/assets/img/corte2.jpeg');
+  /* Ajustes para que la imagen cubra toda la sección perfectamente */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
   position: relative;
   overflow: hidden;
-}
-
-.contact::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(247, 206, 126, 0.18), transparent 55%);
-  pointer-events: none;
+  border-top: 1px solid rgba(199, 154, 61, 0.2);
 }
 
 .inner {
   position: relative;
+  z-index: 1;
   text-align: center;
-  max-width: 560px;
+  max-width: 600px;
   margin: 0 auto;
+  padding: 0 var(--section-pad-x, 24px);
 }
 
 .heading {
-  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-size: clamp(2.1rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   margin: 10px 0 16px;
+  /* Texto metálico brillante */
+  background: linear-gradient(135deg, #ffffff 0%, var(--cream-dim, #e0d8c3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subheading {
-  color: rgba(242, 234, 217, 0.85);
+  color: var(--cream-dim, #d0c8b8);
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
-  margin-top: 34px;
+  gap: 18px;
+  margin-top: 40px;
 }
 
+/* Botón WhatsApp */
 .whatsapp {
-  background: var(--gold);
-  color: var(--black);
-  font-weight: 600;
-  padding: 15px 30px;
-  border-radius: var(--radius-sm);
-  transition: transform 0.2s ease, background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--gold, #c79a3d) 0%, var(--gold-light, #f3e5ab) 100%);
+  color: var(--black, #0a0a0a);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: var(--radius-sm, 8px);
+  box-shadow: 0 10px 25px -5px rgba(199, 154, 61, 0.4);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .whatsapp:hover {
-  background: var(--gold-light);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -5px rgba(199, 154, 61, 0.6);
+  filter: brightness(1.05);
 }
 
+/* Botón Instagram */
 .instagram {
-  padding: 15px 30px;
-  border: 1px solid rgba(206, 168, 88, 0.4);
-  border-radius: var(--radius-sm);
-  color: var(--cream);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border: 1px solid rgba(199, 154, 61, 0.4);
+  background: rgba(10, 10, 10, 0.6); /* Fondo translúcido para contraste */
+
+  border-radius: var(--radius-sm, 8px);
+  color: var(--cream, #f7f3e9);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .instagram:hover {
-  border-color: var(--gold-light);
-  transform: translateY(-2px);
+  border-color: var(--gold-light, #f3e5ab);
+  background: rgba(199, 154, 61, 0.15);
+  color: var(--gold-light, #f3e5ab);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Adaptación Mobile */
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .whatsapp, 
+  .instagram {
+    width: 100%;
+  }
 }

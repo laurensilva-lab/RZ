@@ -1,6 +1,5 @@
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import About from "./components/About/About";
 import Services from "./components/Services/Services";
 import Gallery from "./components/Gallery/Gallery";
 import Hours from "./components/Hours/Hours";
@@ -14,7 +13,6 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
         <RazorDivider />
         <Services />
         <Gallery />
