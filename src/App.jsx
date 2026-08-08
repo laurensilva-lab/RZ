@@ -1,0 +1,28 @@
+import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
+import About from "./components/About/About";
+import Services from "./components/Services/Services";
+import Gallery from "./components/Gallery/Gallery";
+import Hours from "./components/Hours/Hours";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
+import RazorDivider from "./components/RazorDivider/RazorDivider";
+
+export default function App() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <RazorDivider />
+        <Services />
+        <Gallery />
+        <RazorDivider />
+        <Hours />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}

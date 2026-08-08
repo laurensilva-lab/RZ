@@ -1,0 +1,197 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--black);
+  padding-top: 90px;
+}
+
+/* Imagen de fondo difuminada */
+.bgImage {
+  position: absolute;
+  inset: -10px; /* Extiende levemente los bordes para ocultar el blur blanco en los bordes */
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.6); /* Ajustá el número del blur si lo querés más o menos borroso */
+  z-index: 0;
+}
+
+/* Superposición oscura elegante */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(199, 154, 61, 0.12), rgba(10, 10, 10, 0.75));
+  z-index: 1;
+}
+
+.glow {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  width: 640px;
+  height: 640px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(199, 154, 61, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.inner {
+  position: relative;
+  z-index: 3; /* Para asegurar que el texto quede por encima del fondo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  animation: rise 0.9s ease both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo {
+  width: 116px;
+  height: 116px;
+  object-fit: contain;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 8px 30px rgba(199, 154, 61, 0.25));
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--gold-light);
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  margin-top: 16px;
+}
+
+.description {
+  max-width: 480px;
+  color: var(--cream-dim);
+  margin-top: 18px;
+  font-size: 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  padding: 14px 26px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.primaryBtn {
+  background: var(--gold);
+  color: var(--black);
+  font-weight: 600;
+}
+
+.primaryBtn:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(242, 234, 217, 0.3);
+  color: var(--cream);
+}
+
+.secondaryBtn:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 40px;
+  border: 1px solid rgba(242, 234, 217, 0.35);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  z-index: 3;
+}
+
+.scrollLine {
+  width: 2px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 2px;
+  animation: scrollDown 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (max-width: 480px) {
+  .scrollHint {
+    display: none;
+  }
+}
+.logo {
+  width: 116px;
+  height: 116px;
+  object-fit: cover; /* Asegura que la imagen no se deforme dentro del círculo */
+  border-radius: 50%; /* Lo hace completamente redondo */
+  border: 2px solid var(--gold); /* Borde dorado elegante */
+  margin-bottom: 18px;
+  filter: drop-shadow(0 8px 30px rgba(199, 154, 61, 0.35));
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05); /* Efecto de zoom sutil al pasar el cursor */
+}

@@ -1,0 +1,65 @@
+.contact {
+  padding: var(--section-pad-y) 0;
+  background: linear-gradient(160deg, var(--maroon) 0%, #030500 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(247, 206, 126, 0.18), transparent 55%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin: 10px 0 16px;
+}
+
+.subheading {
+  color: rgba(242, 234, 217, 0.85);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.whatsapp {
+  background: var(--gold);
+  color: var(--black);
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.whatsapp:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.instagram {
+  padding: 15px 30px;
+  border: 1px solid rgba(206, 168, 88, 0.4);
+  border-radius: var(--radius-sm);
+  color: var(--cream);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.instagram:hover {
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+}

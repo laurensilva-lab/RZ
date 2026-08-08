@@ -1,0 +1,95 @@
+.gallery {
+  padding: var(--section-pad-y) 0;
+  background: var(--black);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.heading {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+}
+
+/* Grilla adaptable: 3 columnas en escritorio */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--charcoal); /* Fondo para acompañar el formato del diploma */
+}
+
+/* Estilos de la imagen para verla ENTERA */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Muestra toda la imagen completa sin recortar nada */
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(199, 154, 61, 0.35);
+  display: block;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.image:hover {
+  border-color: var(--gold);
+  transform: scale(1.03); /* Efecto sutil al pasar el cursor */
+}
+
+/* Estilos para el placeholder */
+.placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+  border: 1px dashed rgba(199, 154, 61, 0.35);
+  background: repeating-linear-gradient(
+    135deg,
+    var(--charcoal),
+    var(--charcoal) 12px,
+    var(--charcoal-2) 12px,
+    var(--charcoal-2) 24px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  transition: border-color 0.2s ease;
+}
+
+.placeholder:hover {
+  border-color: var(--gold);
+}
+
+/* --- DISEÑO RESPONSIVO --- */
+
+/* Tablets / Pantallas medianas: 2 columnas */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Celulares: 1 columna para que los diplomas se lean y aprecien perfecto */
+@media (max-width: 540px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cell {
+    /* Mantiene una buena relación de aspecto en celulares */
+    aspect-ratio: 4 / 3; 
+  }
+}
