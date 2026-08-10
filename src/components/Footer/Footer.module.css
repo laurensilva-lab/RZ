@@ -44,6 +44,24 @@
   color: var(--gold-light);
 }
 
+.social {
+  display: flex;
+  gap: 16px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--cream-dim);
+  transition: color 0.2s ease;
+}
+
+.socialLink:hover {
+  color: var(--gold-light);
+}
+
 .copyright {
   font-family: var(--font-mono);
   font-size: 0.72rem;

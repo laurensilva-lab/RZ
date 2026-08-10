@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://laurensilva-lab.github.io/RZ/sitemap.xml
