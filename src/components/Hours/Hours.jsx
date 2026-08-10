@@ -41,7 +41,7 @@ export default function Hours() {
           <div className={styles.mapFrameWrap}>
             <iframe
               title="Ubicación de la barbería"
-              src="https://maps.google.com/maps?q=-34.9126201,-54.9546252&z=15&output=embed"
+              src={`https://maps.google.com/maps?q=${barbershop.lat},${barbershop.lng}&z=16&output=embed`}
               width="100%"
               height="250"
               style={{ border: 0, borderRadius: "var(--radius-md)" }}

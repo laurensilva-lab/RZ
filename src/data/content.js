@@ -13,8 +13,10 @@ export const barbershop = {
   tagline: "Oficio de barbero, corte a corte.",
   whatsappNumber: "59896237970", 
   instagram: "@raizonbautista",
-  address: "Dirección de la barbería, Maldonado",
-  mapsUrl: "https://maps.app.goo.gl/Q1bWaim3D41FSoXH6",
+  address: "Artesanos, La Capuera, Maldonado",
+  mapsUrl: "https://maps.app.goo.gl/CKBudowV677ESVts7",
+  lat: -34.8547975,
+  lng: -55.1277399,
 };
 
 export const navLinks = [
