@@ -15,10 +15,11 @@ export default function App() {
         <Hero />
         <RazorDivider />
         <Services />
-        <Gallery />
         <RazorDivider />
         <Hours />
         <Contact />
+        <RazorDivider />
+        <Gallery />
       </main>
       <Footer />
     </>
