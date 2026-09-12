@@ -47,9 +47,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <a href="#servicios" className={styles.scrollHint} aria-label="Bajar a la siguiente sección">
-        <span className={styles.scrollLine} />
-      </a>
     </section>
   );
 }

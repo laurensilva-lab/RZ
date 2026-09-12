@@ -4,18 +4,22 @@
 
 .contact {
   padding: var(--section-pad-y, 90px) 0;
-  
-  background: 
-  linear-gradient(180deg, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.95) 100%),
-  url('/assets/img/corte2.jpeg');
-  /* Ajustes para que la imagen cubra toda la sección perfectamente */
+  background-image: url('/pexels-enginakyurt-24285680.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(199, 154, 61, 0.2);
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.685);
+  backdrop-filter: blur(3px);
+  z-index: 0;
 }
 
 .inner {

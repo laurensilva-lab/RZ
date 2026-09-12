@@ -2,12 +2,29 @@
    SERVICES SECTION (PREMIUM & INTERACTIVE)
    ========================================================================== */
 
+
 .services {
   padding: var(--section-pad-y, 80px) 0;
-  background: radial-gradient(circle at top, rgba(30, 30, 30, 0.6) 0%, var(--black-soft, #0d0d0d) 100%);
   position: relative;
+  background-image: url('/pexels-enginakyurt-24285680.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
+.services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+}
+
+.services > * {
+  position: relative;
+  z-index: 1;
+}
 /* Header principal */
 .header {
   max-width: 560px;
