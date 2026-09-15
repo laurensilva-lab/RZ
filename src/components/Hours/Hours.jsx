@@ -17,10 +17,6 @@ export default function Hours() {
               </li>
             ))}
           </ul>
-
-          <p className={styles.note}>
-            
-          </p>
         </div>
 
         <div>
@@ -37,14 +33,13 @@ export default function Hours() {
             Ver en Google Maps →
           </a>
 
-          {/* Mapa interactivo integrado */}
           <div className={styles.mapFrameWrap}>
             <iframe
               title="Ubicación de la barbería"
-              src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280!2d${barbershop.lng}!3d${barbershop.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1ses!2s!4v1`}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13098.508215904085!2d-55.0741272!3d-34.8404285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95750fc7d26bb4c9%3A0xb36b582ee5962372!2sOcean%20Park%2C%20Maldonado%20Department!5e0!3m2!1sen!2suy!4v1700000000000"
               width="100%"
               height="250"
-              style={{ border: 0, borderRadius: "var(--radius-md)" }}
+              style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
