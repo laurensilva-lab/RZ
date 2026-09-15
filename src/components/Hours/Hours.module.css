@@ -7,36 +7,36 @@
   position: relative;
   overflow: hidden;
   background-color: var(--black-soft, #0d0d0d);
-  
-                 /* Cantidad de desenfoque */
 }
 
-/* Capa de imagen de fondo con filtro personalizable */
+/* Capa de imagen de fondo */
 .hours::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('fondomap.jpg');
+  /* Ruta absoluta a la carpeta public */
+  background-image: url('/fondomap.jpg'); 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  filter: blur(var(--bg-blur));
-  transform: scale(1.05); /* Evita bordes blancos al aplicar blur */
+  filter: blur(var(--bg-blur, 4px));
+  transform: scale(1.05);
   z-index: 0;
 }
 
-/* Capa de color personalizable sobre la imagen */
+/* Capa de oscuridad sobre la imagen */
 .hours::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: var(--overlay-color);
-  opacity: var(--overlay-opacity);
+  /* Valores por defecto si la variable no existe */
+  background-color: var(--overlay-color, #000000);
+  opacity: var(--overlay-opacity, 0.7); 
   z-index: 1;
   pointer-events: none;
 }
 
-/* Asegura que el contenido esté por encima del fondo y los filtros */
+/* Asegura que el contenido esté por encima del fondo */
 .hours > * {
   position: relative;
   z-index: 2;
@@ -80,7 +80,6 @@
   border-top: 1px solid rgba(242, 234, 217, 0.08);
 }
 
-/* Efecto hover suave en las filas de horarios */
 .row:hover {
   background: rgba(255, 255, 255, 0.04);
   padding-left: 18px;
@@ -115,7 +114,6 @@
   margin-bottom: 12px;
 }
 
-/* Enlace tipo botón moderno para abrir el mapa */
 .mapLink {
   display: inline-flex;
   align-items: center;
@@ -126,6 +124,7 @@
   text-decoration: none;
   border-bottom: 1px solid rgba(243, 229, 171, 0.3);
   padding-bottom: 2px;
+  margin-bottom: 20px;
   transition: all 0.3s ease;
 }
 
@@ -135,52 +134,26 @@
   transform: translateX(4px);
 }
 
-/* Contenedor / Placeholder del Mapa */
-.mapPlaceholder {
-  margin-top: 24px;
-  aspect-ratio: 16 / 10;
+/* Contenedor del Mapa (sincronizado con mapFrameWrap) */
+.mapFrameWrap {
+  margin-top: 16px;
   border-radius: var(--radius-md, 16px);
-  border: 1px dashed rgba(199, 154, 61, 0.35);
+  border: 1px solid rgba(199, 154, 61, 0.35);
   background: rgba(20, 20, 20, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  color: var(--cream-dim, #a39e93);
-  font-family: var(--font-mono, monospace);
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
   overflow: hidden;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, border-style 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.mapPlaceholder:hover {
-  border-style: solid;
-  border-color: var(--gold, #c79a3d);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6),
-              0 0 20px rgba(199, 154, 61, 0.12);
-}
-
-/* Si usas un iframe de Google Maps dentro del contenedor */
-.mapPlaceholder iframe {
+.mapFrameWrap iframe {
   width: 100%;
-  height: 100%;
+  height: 250px;
+  display: block;
   border: 0;
-  border-radius: var(--radius-md, 16px);
-  filter: grayscale(0.8) contrast(1.2) invert(0.9); /* Opcional: Estilo de mapa en modo oscuro */
-  transition: filter 0.3s ease;
+  /* Quita el filtro invert si quieres ver los colores normales en móviles */
+  filter: grayscale(0.2) contrast(1.1); 
 }
 
-.mapPlaceholder:hover iframe {
-  filter: grayscale(0.2) contrast(1) invert(0);
-}
-
-/* --- RESPONSIVE --- */
-
+/* RESPONSIVE */
 @media (max-width: 720px) {
   .grid {
     grid-template-columns: 1fr;
