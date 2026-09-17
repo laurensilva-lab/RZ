@@ -1,42 +1,38 @@
 /* ==========================================================================
-   GALLERY / CERTIFICATES SECTION — Estética UI Profesional Refinada
+   GALLERY / CERTIFICATES SECTION — Limpio sin Fondos Oscuros ni Difuminado
    ========================================================================== */
 
 .gallery {
   padding: var(--section-pad-y, 90px) 0;
   position: relative;
   overflow: hidden;
-  /* Fondo con capas: Gradiente oscuro de superposición + Imagen base */
-  background: 
-    linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(15, 15, 15, 0) 100%),
-    url('/fondocarrusel.jpg') center / cover no-repeat fixed;
+  background-image: url('/fondocarrusel.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
-/* Efecto de desenfoque aplicado directamente a la sección mediante un pseudoelemento */
-/* Ajuste de difuminado más ligero */
-.gallery::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+@media (min-width: 769px) {
+  .gallery {
+    background-attachment: fixed;
+  }
 }
 
-/* Aseguramos que el contenido esté por encima del filtro de fondo */
 .gallery > * {
   position: relative;
   z-index: 1;
 }
 
-/* --- Encabezado Limpio & Glassmorphic --- */
+/* --- Encabezado Limpio (Sin fondo oscuro ni difuminado) --- */
 .header {
   text-align: center;
   margin-bottom: 48px;
   padding: 16px 24px;
-  background: rgba(20, 20, 20, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
 }
 
 .heading {
@@ -76,33 +72,36 @@
   background: linear-gradient(90deg, rgba(199, 154, 61, 0.3), transparent);
 }
 
-/* --- Máscara de Degradado Lateral --- */
+/* --- Carrusel --- */
 .carousel {
   width: 100%;
   overflow: hidden;
-  padding: 12px 0; /* Espacio extra para las sombras al hacer hover */
+  padding: 20px 0;
   -webkit-mask-image: linear-gradient(
-    90deg,
+    to right,
     transparent 0%,
-    #000 8%,
-    #000 92%,
+    black 6%,
+    black 94%,
     transparent 100%
   );
   mask-image: linear-gradient(
-    90deg,
+    to right,
     transparent 0%,
-    #000 8%,
-    #000 92%,
+    black 6%,
+    black 94%,
     transparent 100%
   );
 }
 
+/* --- Track de Animación --- */
 .track {
   display: flex;
-  gap: 24px;
+  gap: 20px;
   width: max-content;
-  animation: scroll-left calc(var(--items, 3) * 7s) linear infinite;
+  animation: scroll-left calc(var(--items, 4) * 8s) linear infinite;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .track:hover {
@@ -114,36 +113,35 @@
 }
 
 @keyframes scroll-left {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 @keyframes scroll-right {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
-/* --- Slide / Tarjetas del Carrusel --- */
+/* --- Slide / Tarjetas (Sin caja negra, bordes ni difuminados) --- */
 .slide {
   flex: 0 0 auto;
-  width: clamp(230px, 25vw, 350px);
+  width: clamp(220px, 25vw, 320px);
   aspect-ratio: 4 / 3;
-  border-radius: var(--radius-md, 16px);
+  border-radius: var(--radius-md, 14px);
   overflow: hidden;
-  background: rgba(22, 22, 22, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
 
 .slide:hover {
-  transform: translateY(-6px) scale(1.01);
-  border-color: rgba(199, 154, 61, 0.4);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8),
-              0 0 30px rgba(199, 154, 61, 0.18);
+  transform: translateY(-6px) scale(1.02);
+  border-color: transparent;
+  box-shadow: none;
 }
 
 /* --- Imágenes dentro del Slide --- */
@@ -158,29 +156,33 @@
 }
 
 .slide:hover .image {
-  transform: scale(1.04);
-  filter: brightness(1.05) contrast(1.05);
+  transform: scale(1.05);
+  filter: brightness(1.08) contrast(1.05);
 }
 
-/* --- Estilo Adaptado para Diplomas/Certificados --- */
+/* --- Adaptación para Diplomas --- */
 .bandDiplomas .slide {
-  background: rgba(15, 15, 15, 0.9);
+  background: transparent;
 }
 
 .bandDiplomas .image {
   object-fit: contain;
-  padding: 14px;
+  padding: 0;
 }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 540px) {
   .gallery {
-    padding: 60px 0;
+    padding: 50px 0;
   }
   
+  .carousel {
+    padding: 14px 0;
+  }
+
   .slide {
-    width: clamp(190px, 65vw, 270px);
-    border-radius: 12px;
+    width: clamp(180px, 60vw, 240px);
+    border-radius: 10px;
   }
 
   .bandLabel {

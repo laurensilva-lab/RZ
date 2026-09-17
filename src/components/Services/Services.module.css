@@ -2,28 +2,36 @@
    SERVICES SECTION (PREMIUM & INTERACTIVE)
    ========================================================================== */
 
-
 .services {
   padding: var(--section-pad-y, 80px) 0;
   position: relative;
   background-image: url('/fondo.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* Se usa scroll como base para evitar deformaciones en móviles */
+  background-attachment: scroll; 
 }
 
+/* Pseudo-elemento corregido para el fondo oscuro */
 .services::before {
   content: '';
-  position: relative;
+  position: absolute;
   inset: 0;
-  background-color: rgb(0, 0, 0);
- 
+  background-color: rgba(0, 0, 0, 0.7); /* Opacidad para dejar ver la imagen */
   z-index: 0;
 }
 
 .services > * {
   position: relative;
   z-index: 1;
+}
+
+/* Mantener el efecto parallax (fixed) solo en pantallas de escritorio */
+@media (min-width: 769px) {
+  .services {
+    background-attachment: fixed;
+  }
 }
 /* Header principal */
 .header {
