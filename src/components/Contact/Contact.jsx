@@ -8,8 +8,7 @@ export default function Contact() {
         <p className="eyebrow">Contacto</p>
         <h2 className={styles.heading}>¿Reservamos tu turno?</h2>
         <p className={styles.subheading}>
-          Escribime por WhatsApp con el día y horario que te queden mejor y
-          te confirmo al toque.
+          Escribime por WhatsApp con el día y horario que te queden mejor .
         </p>
 
         <div className={styles.actions}>
