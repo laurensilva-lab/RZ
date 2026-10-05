@@ -54,9 +54,21 @@ export default function Footer() {
           </a>
         </div>
 
-        <p className={styles.copyright}>
-          © {year} {barbershop.name}
-        </p>
+        <div className={styles.bottom}>
+  <p className={styles.copyright}>
+    © {year} {barbershop.name}. Todos los derechos reservados.
+  </p>
+  <p className={styles.credit}>
+    Desarrollado por{" "}
+    <a
+      href="https://nice-elements-205697.framer.app/"
+      target="_blank"
+      rel="noopener"
+    >
+      Lala Serena
+    </a>
+  </p>
+</div>
       </div>
     </footer>
   );

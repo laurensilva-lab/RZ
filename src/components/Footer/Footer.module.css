@@ -84,3 +84,27 @@
     text-align: right;
   }
 }
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px 16px;
+}
+
+.credit {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.credit a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.credit a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
